@@ -1,6 +1,8 @@
-function preLoad()
+noseX=0;
+noseY=0;
+function preload()
 {
-    
+   mustache_img=loadImage("https://i.postimg.cc/CL2wdGSP/Mustache.png");
 }
 function setup()
 {
@@ -21,13 +23,17 @@ function gotPoses(results)
 {
 if(results.length>0){
     console.log(results);
-    console.log(results[0].pose.nose.x);
-    console.log(results[0].pose.nose.y);
+    noseX=results[0].pose.nose.x-25;
+    noseY=results[0].pose.nose.y;
 }
 }
 function draw()
 {
     image(video,0,0,300,300);
+   // fill(255,0,0);
+    //stroke(255,0,0);
+    //circle(noseX,noseY,20);
+    image(mustache_img,noseX,noseY,60,40);   
 }
 function take_snapshot()
 {
